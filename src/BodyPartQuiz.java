@@ -29,27 +29,40 @@ public class BodyPartQuiz {
 
 
 	private void startQuiz() {
+String name = "";
+		for (int i = 1; i <= 4; i++) {
+		
+	if(i == 1) {name = "arnold";}
+	else if(i == 2) {name = "leonardo";}
+	else if(i == 3) {name = "morgan";}
+	else if(i == 4) {name = "jack";}
 
 		// 1. Make an int variable to hold the score.
-
+			int s = 0;
 		// 2. Set the size of the window in the initializeGui() method below
 			
 		// 4. Ask the user who this person is and store their answer
-		String guess= JOptionPane.showInputDialog("who is this?");
+			String guess= JOptionPane.showInputDialog("What is his first name?");
 
 		// 5. Check their answer. If they guessed correctly:
 		// -- Tell them they are right and increase the score by 1
-
+			if(guess.equalsIgnoreCase(name)) {
+				JOptionPane.showMessageDialog(null, "You are right!");
+				s++;
+			}
 		// 6. Otherwise:
 		// -- Tell them they are wrong and who the person is
-
+			else {
+				JOptionPane.showMessageDialog(null, "You are wrong!");
+			}
 		// 7. Use the showNextImage() method below to get the next image
 		showNextImage();
 	    	// 8. Show them their current score
-
+		JOptionPane.showMessageDialog(null, "Your score is " + s +".");
 		// 9. .... repeat for all your images.....
 
-
+}
+		JOptionPane.showMessageDialog(null, "Your score is " + s +".");
 	}
 
 	public void showNextImage() {
@@ -67,6 +80,7 @@ public class BodyPartQuiz {
 	private void initializeGui() {
 		initializeImageList();
 		imageIterator = imageList.iterator();
+		window.setSize(500, 1000);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.add(panel);
 		
